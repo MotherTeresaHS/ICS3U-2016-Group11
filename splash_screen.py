@@ -8,31 +8,32 @@ from scene import *
 import ui
 import time
 
-from main_menu_scene import *
+from main_menu import *
 
 
 class SplashScene(Scene):
     def setup(self):
         # this method is called, when user moves to this scene
-        
         # create timer, so that after 2 seconds move to next scene
         self.start_time = time.time()
         
         # add MT blue background color
-        self.background = SpriteNode(position = self.size / 2, 
+        self.background = SpriteNode('./assets/sprites/background.PNG', 
                                      color = (0.61, 0.78, 0.87), 
                                      parent = self, 
-                                     size = self.size)
-        self.school_crest = SpriteNode('./assets/sprites/MT_Crest.jpg',
-                                       parent = self,
-                                       position = self.size/2)
+                                     size = self.size,
+                                     position = self.size/2)
+        #self.school_crest = SpriteNode('./assets/sprites/MT_Crest.jpg',
+        #                               parent = self,
+        #                               position = self.size/2)
     
     def update(self):
         # this method is called, hopefully, 60 times a second
-        
         # after 2 seconds, move to main menu scene
         if not self.presented_scene and time.time() - self.start_time > 2:
-            self.present_modal_scene(MainMenuScene())
+            #if self.tru == True:
+            self.present_modal_scene(MainMenuClass())
+            
     
     def touch_began(self, touch):
         # this method is called, when user touches the screen
@@ -61,3 +62,4 @@ class SplashScene(Scene):
         # back into use. Reload anything you might need.
         pass
     
+
