@@ -8,7 +8,7 @@ from scene import *
 import ui
 import time
 
-from main_menu import *
+from main_menu_real import *
 
 
 class SplashScene(Scene):
@@ -32,7 +32,7 @@ class SplashScene(Scene):
         # after 2 seconds, move to main menu scene
         if not self.presented_scene and time.time() - self.start_time > 2:
             #if self.tru == True:
-            self.present_modal_scene(MainMenuClass())
+            self.present_modal_scene(MainMenuScene())
             
     
     def touch_began(self, touch):
