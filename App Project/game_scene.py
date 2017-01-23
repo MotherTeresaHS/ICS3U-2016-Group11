@@ -63,6 +63,9 @@ class GameScene (Scene):
 			
 		elif self.planet.position[1] == self.size[1]/2 - self.size[1]/4:
 			self.planet.run_action(Action.move_to(self.planet.position[0],self.size[1]/2 + self.size[1]/4))
+			
+		if self.pause_button.frame.contains_point(touch.location):
+			self.dismiss_modal_scene()
 	def touch_moved(self, touch):
 		pass
 	
